@@ -1,4 +1,5 @@
 import './main.css'
-import buttonsInteractions from './modules/buttons-interactions'
 
-buttonsInteractions()
+window.onload = buttonsInteractions()
+
+import buttonsInteractions from './modules/buttons-interactions'

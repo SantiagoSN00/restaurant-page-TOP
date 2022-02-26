@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
+@font-face {
+    font-family: "font-titulo";
+    src: url("./asset/fonts/Cafe\ Francoise_D.otf");
+    }
+    @font-face {
+        font-family: "font-platillos";
+        src: url("./asset/fonts/CroissantOne-Regular.ttf");
+        }
+
 :root{
     font-family: 'Roboto';
     font-size:62,5%;
+    color: white;
 }
 
 
@@ -11,17 +21,21 @@ html,body{
     background-image: url('./asset/images/bg.jpg');
     width: 100vw;
     height: 100vh;
+    font-family: font-platillos
 }
 .contents{
     width: 100%;
     height: 100%;
 }
 .titulo{
+    font-family: font-titulo;
     font-size: 4rem;
     margin: 20px 0px;
     display: flex;
     flex:1;
     justify-content: center;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+
 }
 .horarios{
     padding: 0;
@@ -38,7 +52,7 @@ html,body{
 }
 
 .oculto{
-    display: none;
+    display: none !important;
 }
 .horarios *{
     display:flex;
@@ -47,20 +61,49 @@ html,body{
     font-size: 2rem;
 }
 
-.container{
+.container > *{
     padding: 25px;
     display: grid;
-    grid-template-columns: 200px;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    grid-auto-flow:row dense;
+    grid-auto-rows: minmax(400px, auto);
+    gap:25px;
     margin: 5% 10%;
     border: 2px solid black;
+    background: rgba(0,0,0,0.7);
 }
 
 .platillo{
-    display:flex;
-    flex-direction: column;
     border: 2px solid black;
-    background-image: url("./asset/images/platillos/polenta10-6.jpg");
+    background-image: linear-gradient(rgba(112, 112, 112, 0.4),rgba(112, 112, 112, 0.4)),url("./asset/images/platillos/polenta.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    aspect-ratio: 10/6;
+    background-position: center;
+    display:flex;
+    flex-direction: column;
+    padding-left: 20px;
+    align-items: center;
+    font-size: 2rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    box-shadow: 10px 5px 5px black;
 }
+.platillo h3{
+    margin-top: 10px;
+}
+.platillo :last-child{
+    display:flex;
+    flex:1;
+    align-items: flex-end;
+}
+.img-wrapper{
+    opacity: 0.5;
+}
+
+.unselectable{
+    user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+}
+
